@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        console.log("login", response);
+        // console.log("login", response);
         document.location.replace('http://localhost:3001/dashboard');
       } else {
         alert(response.statusText);
