@@ -4,6 +4,10 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const helpers = require('./utils/helpers');
 
+// dotenv
+// bcrypt package
+// connect-session-sequelize
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
