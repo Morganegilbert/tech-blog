@@ -20,11 +20,6 @@ const postdata = [
       title: 'Nunc purus.',
       content: 'information',
       user_id: 4
-    },
-    {
-      title: 'Pellentesque eget nunc.',
-      content: 'information',
-      user_id: 5
     }
 ];
 
