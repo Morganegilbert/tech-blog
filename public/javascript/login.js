@@ -15,7 +15,8 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        console.log("login", response);
+        document.location.replace('http://localhost:3001/dashboard');
       } else {
         alert(response.statusText);
       }
@@ -39,7 +40,8 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        // console.log("signup", response);
+        document.location.replace('http://localhost:3001/dashboard');
       } else {
         alert(response.statusText);
       }
