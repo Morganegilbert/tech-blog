@@ -5,14 +5,12 @@ const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
-  console.log('======================');
   Post.findAll({
     attributes: [
       'id',
       'content',
       'title',
       'created_at',
-    //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -46,7 +44,6 @@ router.get('/:id', (req, res) => {
       'content',
       'title',
       'created_at',
-    //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -78,7 +75,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
-  console.log("This is post-routes", req);
   Post.create({
     title: req.body.title,
     content: req.body.content,
@@ -90,19 +86,6 @@ router.post('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
-// router.put('/upvote', withAuth, (req, res) => {
-//   // make sure the session exists first
-//   if (req.session) {
-//     // pass session id along with all destructured properties on req.body
-//     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-//       .then(updatedVoteData => res.json(updatedVoteData))
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   }
-// });
 
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
@@ -129,7 +112,6 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-  console.log('id', req.params.id);
   Post.destroy({
     where: {
       id: req.params.id

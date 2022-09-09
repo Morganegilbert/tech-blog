@@ -5,8 +5,6 @@ const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-  // console.log(req.session);
-  console.log('======================');
   Post.findAll({
     where: {
       user_id: req.session.user_id
@@ -16,7 +14,6 @@ router.get('/', withAuth, (req, res) => {
       'content',
       'title',
       'created_at',
-    //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -53,7 +50,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'content',
       'title',
       'created_at',
-    //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -88,7 +84,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
 });
 
 router.get('/add', withAuth, (req, res) => {
-  console.log("Made it to router")
   Post.findAll({
     where: {
       user_id: req.session.user_id,
@@ -98,7 +93,6 @@ router.get('/add', withAuth, (req, res) => {
       'content',
       'title',
       'created_at',
-    //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -116,7 +110,6 @@ router.get('/add', withAuth, (req, res) => {
     ]
   })
     .then(dbPostData => {
-      console.log("Made it to .then");
       if (dbPostData) {
         const post = dbPostData.map(post => post.get({ plain: true }));
         
