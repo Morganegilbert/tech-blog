@@ -22,11 +22,14 @@
     <li>
       {{> post-info post}}
     </li>
+    <a href="/dashboard/edit/{{post.id}}"><button class="button">Edit Post</button></a>
     {{/each}}
   </ol>
 </section>
 {{/if}}
 
-<button type="submit" class="btn" href="dashboard/add/" id="new-post-form">New Post</button>
+<a href="/dashboard/add">
+    <button type="submit" class="btn">New Post</button>
+</a>
 
-{{!-- <script src="/public/javascript/add-post.js"></script> --}}
+{{!-- <script src="/javascript/add-post.js"></script> --}}

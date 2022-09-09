@@ -49,9 +49,9 @@ Post.init(
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        isURL: true
-      }
+    //   validate: {
+    //     isURL: true
+    //   }
     },
     user_id: {
       type: DataTypes.INTEGER,

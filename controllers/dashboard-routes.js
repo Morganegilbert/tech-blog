@@ -88,6 +88,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 });
 
 router.get('/add', withAuth, (req, res) => {
+  console.log("Made it to router")
   Post.findAll({
     where: {
       user_id: req.session.user_id,
@@ -115,10 +116,11 @@ router.get('/add', withAuth, (req, res) => {
     ]
   })
     .then(dbPostData => {
+      console.log("Made it to .then");
       if (dbPostData) {
-        const post = dbPostData.get({ plain: true });
+        const post = dbPostData.map(post => post.get({ plain: true }));
         
-        res.render('create-post', {
+        res.render('add-post', {
           post,
           loggedIn: true
         });
