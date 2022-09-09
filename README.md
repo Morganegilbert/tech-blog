@@ -19,4 +19,4 @@
 
 # URL Links:
 <br>
-## Tech Blog on Heroku: https://desolate-beach-88553.herokuapp.com/ 
+## Tech Blog on Heroku: https://agile-dusk-84172.herokuapp.com/ 
